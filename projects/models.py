@@ -13,7 +13,7 @@ class Post(models.Model):
     link = models.CharField(max_length=70)
     technologies = models.CharField(max_length=100)
 
-     def __str__(self):
+    def __str__(self):
         return self.title
 
     def save_project(self):
