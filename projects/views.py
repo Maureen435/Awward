@@ -13,7 +13,7 @@ from django.db.models import Avg
 
 class PostListView(ListView):
     model = Post
-    template_name = 'projects/index.html'
+    template_name = 'index.html'
 
 class PostDetailView(DetailView): 
     model = Post
@@ -30,7 +30,7 @@ def profile(request):
     profile = Profile.objects.filter(user=current_user).first()
     posts = request.user.post_set.all()
 
-    return render(request, 'projects/profile.html', locals())
+    return render(request, 'profile.html', locals())
 
 def updateprofile(request):
     current_user = request.user
@@ -43,7 +43,7 @@ def updateprofile(request):
             return redirect('profile')
     else:
         form = ProfileForm()
-    return render(request, 'projects/profile_update.html',{"form":form })
+    return render(request, 'profile_update.html',{"form":form })
 
 
 def post_new(request):
@@ -57,7 +57,7 @@ def post_new(request):
         return redirect('home')
     else:
         form = PostForm()
-    return render(request, 'projects/post_new.html', {"form": form})
+    return render(request, 'post_new.html', {"form": form})
 
 def search_results(request):
 
@@ -66,15 +66,15 @@ def search_results(request):
         searched_posts = Post.search(search_term)
         message = f"{search_term}"
 
-        return render(request, 'projects/search.html',{"message":message,"posts": searched_posts})
+        return render(request, 'search.html',{"message":message,"posts": searched_posts})
 
     else:
         message = "You haven't searched for any term"
-        return render(request, 'projects/search.html',{"message":message})
+        return render(request, 'search.html',{"message":message})
 
 def vote(request,post_id):
     try:
         post = Post.objects.get(id = post_id)
     except DoesNotExist:
         raise Http404()
-    return render(request,"projects/vote.html", {"post":post})
+    return render(request,"vote.html", {"post":post})
