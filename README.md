@@ -8,7 +8,7 @@ This is an application that enables users to view projects
 
 ### Deployed link
 
- - https://award-45-45.herokuapp.com/
+ - https://sheltered-retreat-06811.herokuapp.com 
 
 ### Setup and Installation  
 To get the project .......  
