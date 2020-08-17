@@ -15,13 +15,11 @@ class PostListView(ListView):
     model = Post
     template_name = 'projects/index.html'
 
-    
-
 class PostDetailView(DetailView): 
     model = Post
     template_name = 'post_detail.html'
 
-
+    
 class SignUpView(generic.CreateView):
     form_class = UserRegisterForm
     success_url = reverse_lazy('login')
